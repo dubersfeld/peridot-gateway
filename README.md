@@ -89,7 +89,7 @@ $ redis-cli
 1) "spring:session:sessions:expires:9de09f95-a036-4ee1-8173-2e4d245cdf79"
 2) "spring:session:sessions:9de09f95-a036-4ee1-8173-2e4d245cdf79"
 3) "spring:session:expirations:1521575940000"
-4) "spring:session:index:org.springframework.session.FindByIndexNameSessionRepository.PRINCIPAL\_NAME\_INDEX_NAME:Richard"
+4) "spring:session:index:org.springframework.session.FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME:Richard"
 127.0.0.1:6379> 
 ```
 
