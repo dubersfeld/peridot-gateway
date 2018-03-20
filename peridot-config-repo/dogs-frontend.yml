@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+spring:
+  session:
+    store-type: redis
+    
+  jpa:
+    database: "MYSQL"
+   
+    show-sql: "true"
+   
+ 
+  datasource:
+    platform:  "mysql"
+    url: "jdbc:mysql://localhost:3306/peridot_dogs"
+    username: "dbuser"
+    password: "password1234"
+    
+    
+gateway-path: /dogs    
+    
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  

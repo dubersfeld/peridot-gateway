@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+
+<head th:replace="fragments/header::header(title='home')">
+</head>
+
+
+<body>
+
+	<div sec:authorize="hasRole('DOG_USER')" class="display">
+	
+	<br /><br />
+	<h1 class="display">Welcome to Peridot</h1><br /><br />
+	
+	<br /><br />
+  	<a th:href="@{/logout}" th:text="'Sign Out'"></a>
+	<br /><br />
+	
+	<div class="display">
+		
+	  	<br/><br/>
+		<a th:href="@{{path}/allDogs(path=${gatewayPath})}" th:text="'All dogs'"></a><br/><br/>
+
+		<div sec:authorize="hasRole('CREATE')">
+			<a th:href="@{{path}/createDog(path=${gatewayPath})}" th:text="'Add a new dog'"></a><br/><br/>
+		</div>
+		
+		<div sec:authorize="hasRole('UPDATE')">
+			<a th:href="@{{path}/updateDog(path=${gatewayPath})}" th:text="'Update dog age'"></a><br/><br/>
+		</div>
+	
+		<div sec:authorize="hasRole('DELETE')">
+			<a th:href="@{{path}/deleteDog(path=${gatewayPath})}" th:text="'Delete dog'"></a>
+		</div>
+	</div>
+	</div>
+	
+	<div sec:authorize="!hasRole('DOG_USER')" class="display">
+		<h1>You are not allowed to access this page.</h1>
+	</div>
+	
+</body>
+</html>

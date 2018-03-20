@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header::header(title='createDog')">
+</head>  
+<body>
+        
+    <div th:replace="fragments/main::displayPost"></div>
+        
+    <h2 th:text="'createDog'"></h2>
+        
+        <form action="#" th:action="@{createDog}" th:object="${dogForm}" method="post">
+    	<p><span th:text="'Name' + ': '"></span><input type="text" th:field="*{name}" /><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:class="errors"></span></p>
+        <p><span th:text="'Breed' + ': '"></span><input type="text" th:field="*{breed}" /><span th:if="${#fields.hasErrors('breed')}" th:errors="*{breed}" th:class="errors"></span></p>
+        <p><span th:text="'Age' + ': '"></span><input type="text" th:field="*{age}" /><span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" th:class="errors"></span></p>
+        <p><input type="submit" th:value="'valid'" /> <input type="reset" th:value="'reset'" /></p>
+    	</form>
+
+    </body>
+</html>

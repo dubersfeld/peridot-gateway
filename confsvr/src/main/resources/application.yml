@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: configserver
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native: 
+          searchLocations: 
+            # edit this line to match your own file system
+            file:///home/dominique/workspace-peridot-publish/peridot-config-repo
+          

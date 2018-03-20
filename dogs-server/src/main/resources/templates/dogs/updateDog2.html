@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header::header(title='updateDog')">
+</head> 
+<body>
+
+	<div>
+	
+	<div th:replace="fragments/main::displayPost"></div>
+	
+	<h1 th:text="'Update dog age'"></h1><br /><br />
+	                 
+	<form action="#" th:action="@{updateDog2}" th:object="${dog}" method="post">
+		<p><span th:text="'Dog Id: '"></span><input type="text" th:field="*{id}" th:readonly="readonly" /><span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span></p>
+    	<p><span th:text="'Name: '"></span><input type="text" th:field="*{name}" th:readonly="readonly" /><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:class="errors"></span></p>
+        <p><span th:text="'Breed: '"></span><input type="text" th:field="*{breed}" th:readonly="readonly" /><span th:if="${#fields.hasErrors('breed')}" th:errors="*{breed}" th:class="errors"></span></p>
+        <p><span th:text="'Age: '" ></span><input type="text" th:field="*{age}" /><span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" th:class="errors"></span></p>
+        
+        <p><input type="submit" th:value="'valid'" /><input type="reset" th:value="'reset'" /></p>
+	</form>
+    	
+    </div>
+    	
+</body>
+</html>
