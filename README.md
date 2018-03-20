@@ -13,7 +13,7 @@ A recent Apache Maven version installed (I used 3.3.9)
 
 In addition I used Spring Tool Suite for developing this demo but it is not required for running the application.
 
-The complete application is comprised of 2 user interfaces with different access rights and a single gateway. The two UI and the gateway share the same Redis backed Spring Session. 
+The complete application is comprised of 2 user interfaces with different access rights and a single gateway. The two UI and the gateway share the same Redis backed Spring Session that uses default port 6379. 
 
 The UI are customers-frontend on port 8080 and dogs-frontend on port 8081. The gateway itself runs on port 5555.
 
@@ -80,6 +80,26 @@ Bill      | orange   | DOG_USER, CREATE, UPDATE, DELETE
 Of course to execute a CRUD request you need to be granted the required authority. For example to be allowed to create a new customer you have to login as Alice or Richard etc. Moreover only Carol, Alice and Richard can access /customlers and only Marissa, Steve and Bill can access /dogs.
 
 Note that the only port exposed to the user is 5555.
+
+You can check the Redis backed Spring Session by connecting to Redis:
+
+```
+$ redis-cli
+127.0.0.1:6379> keys *
+1) "spring:session:sessions:expires:9de09f95-a036-4ee1-8173-2e4d245cdf79"
+2) "spring:session:sessions:9de09f95-a036-4ee1-8173-2e4d245cdf79"
+3) "spring:session:expirations:1521575940000"
+4) "spring:session:index:org.springframework.session.FindByIndexNameSessionRepository.PRINCIPAL\_NAME\_INDEX_NAME:Richard"
+127.0.0.1:6379> 
+```
+
+If the user logs out the session is invalidated but the Redis keys remain. You can delete them separately by connecting to Redis and running this command:
+
+```
+$ redis-cli
+127.0.0.1:6379> FLUSHALL
+
+```
 
 
 
