@@ -27,7 +27,7 @@ The dependencies are summarized on this figure:
 
 Here are the steps to run the application.
 
-##1. Database creation
+## 1. Database creation
 
 In MySQL client run the commands:
 ```
@@ -37,7 +37,7 @@ SOURCE peridotDogs.sql
 
 This creates two databases named peridot\_customers and peridot\_dogs.
 
-##2. JAR files creation
+## 2. JAR files creation
 
 In each project directory:
 1. confsvr
@@ -52,7 +52,7 @@ run the Maven command:
 ```
 
 Then 
-##3. Launching the application
+## 3. Launching the application
 
 In each project directory (following the sequence)
 1. confsvr
