@@ -77,7 +77,7 @@ Marissa   | wombat   | DOG_USER
 Steve     | apple    | DOG_USER, CREATE, UPDATE
 Bill      | orange   | DOG_USER, CREATE, UPDATE, DELETE
 
-Of course to execute a CRUD request you need to be granted the required authority. For example to be allowed to create a new customer you have to login as Alice or Richard etc. Moreover only Carol, Alice and Richard can access /customlers and only Marissa, Steve and Bill can access /dogs.
+Of course to execute a CRUD request you need to be granted the required authority. For example to be allowed to create a new customer you have to login as Alice or Richard etc. Moreover only Carol, Alice and Richard can access /customers and only Marissa, Steve and Bill can access /dogs.
 
 Note that the only port exposed to the user is 5555.
 
